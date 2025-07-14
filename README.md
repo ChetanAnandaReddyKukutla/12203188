@@ -11,25 +11,25 @@ A modern, responsive URL shortener web application built with React.js, featurin
 
 ### Desktop Interface
 <div align="center">
-  <img src="12203188/FrontendTestSubmission/public//laptopui.png" alt="Desktop Interface" width="700"/>
+  <img src="FrontendTestSubmission/public/laptopui.png" alt="Desktop Interface" width="700"/>
   <p><em>Clean, professional desktop interface with Material-UI design</em></p>
 </div>
 
 ### Mobile Interface
 <div align="center">
-  <img src="public/mobileui.png" alt="Mobile Interface" width="300"/>
+  <img src="FrontendTestSubmission/public/mobileui.png" alt="Mobile Interface" width="300"/>
   <p><em>Fully responsive mobile design with touch-optimized controls</em></p>
 </div>
 
 ### URL Shortening Page
 <div align="center">
-  <img src="public/urlshortenpage.png" alt="URL Shortening Page" width="600"/>
+  <img src="FrontendTestSubmission/public/urlshortenpage.png" alt="URL Shortening Page" width="600"/>
   <p><em>Intuitive URL shortening interface with real-time validation</em></p>
 </div>
 
 ### Analytics Dashboard
 <div align="center">
-  <img src="public/urlanalyticspage.png" alt="Analytics Dashboard" width="600"/>
+  <img src="FrontendTestSubmission/public/urlanalyticspage.png" alt="Analytics Dashboard" width="600"/>
   <p><em>Comprehensive analytics dashboard with detailed click tracking</em></p>
 </div>
 
