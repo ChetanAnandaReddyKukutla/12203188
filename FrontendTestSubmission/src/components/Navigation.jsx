@@ -9,18 +9,21 @@ import {
   Menu,
   MenuItem,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
+  Tooltip
 } from '@mui/material';
 import { 
   Link as LinkIcon, 
   Analytics, 
   Menu as MenuIcon,
-  Home
+  Home,
+  Brightness4,
+  Brightness7
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Log } from '../middleware/logger.js';
 
-const Navigation = () => {
+const Navigation = ({ darkMode, toggleDarkMode }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -77,6 +80,11 @@ const Navigation = () => {
 
         {isMobile ? (
           <>
+            <Tooltip title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}>
+              <IconButton color="inherit" onClick={toggleDarkMode}>
+                {darkMode ? <Brightness7 /> : <Brightness4 />}
+              </IconButton>
+            </Tooltip>
             <IconButton
               color="inherit"
               onClick={handleMenuOpen}
@@ -112,7 +120,7 @@ const Navigation = () => {
             </Menu>
           </>
         ) : (
-          <Box sx={{ display: 'flex', gap: 1 }}>
+          <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
             {navItems.map((item) => (
               <Button
                 key={item.path}
@@ -130,6 +138,11 @@ const Navigation = () => {
                 {item.label}
               </Button>
             ))}
+            <Tooltip title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}>
+              <IconButton color="inherit" onClick={toggleDarkMode}>
+                {darkMode ? <Brightness7 /> : <Brightness4 />}
+              </IconButton>
+            </Tooltip>
           </Box>
         )}
       </Toolbar>

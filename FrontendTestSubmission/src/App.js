@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline, Box } from '@mui/material';
@@ -12,18 +12,32 @@ import RedirectPage from './pages/RedirectPage.jsx';
 
 import logger, { Log } from './middleware/logger.js';
 
+function App() {
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem('darkMode');
+    return savedMode ? JSON.parse(savedMode) : false;
+  });
+
+  const toggleDarkMode = () => {
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    localStorage.setItem('darkMode', JSON.stringify(newMode));
+    Log('App', 'INFO', 'theme', `Theme changed to ${newMode ? 'dark' : 'light'} mode`);
+  };
+
 // Create Material-UI theme
 const theme = createTheme({
   palette: {
-    mode: 'light',
+    mode: darkMode ? 'dark' : 'light',
     primary: {
-      main: '#1976d2',
+      main: darkMode ? '#90caf9' : '#1976d2',
     },
     secondary: {
-      main: '#dc004e',
+      main: darkMode ? '#f48fb1' : '#dc004e',
     },
     background: {
-      default: '#f5f5f5',
+      default: darkMode ? '#121212' : '#f5f5f5',
+      paper: darkMode ? '#1e1e1e' : '#ffffff',
     },
   },
   typography: {
@@ -57,10 +71,7 @@ const theme = createTheme({
   },
 });
 
-function App() {
   useEffect(() => {
-    // Initialize logging with user credentials
-    // In a real application, these would come from user input or environment variables
     logger.updateCredentials({
       email: "student@university.edu",
       name: "John Doe",
@@ -83,7 +94,7 @@ function App() {
       <ErrorBoundary>
         <Router>
           <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-            <Navigation />
+            <Navigation darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
             
             <Box component="main" sx={{ flexGrow: 1, py: 3 }}>
               <Routes>
