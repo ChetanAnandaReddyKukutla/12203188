@@ -11,7 +11,7 @@ A modern, responsive URL shortener web application built with React.js, featurin
 
 ### Desktop Interface
 <div align="center">
-  <img src="public/laptopui.png" alt="Desktop Interface" width="700"/>
+  <img src="12203188/FrontendTestSubmission/public//laptopui.png" alt="Desktop Interface" width="700"/>
   <p><em>Clean, professional desktop interface with Material-UI design</em></p>
 </div>
 
